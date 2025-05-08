@@ -21,9 +21,14 @@
     </header>
     <main>
       <div class="main-container" id="pokemons"></div>
-      <div class="overlay d-none" >
-        <div class="pokemon-overlay ">
+      <div class="overlay">
+        <div class="pokemon-overlay">
           <img src="./assets/img/loso2.svg" class="logo" alt="logo" />
+          <div class="icons">
+          <img src="./assets/icon/left-arrow (1).png" alt="">
+          <img src="./assets/icon/close.png" alt="">
+          <img src="./assets/icon/right-arrow (1).png" alt="">
+          </div>
           <div class="top">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg" alt="" />
             <div class="code">#006</div>
@@ -34,32 +39,54 @@
             </div>
           </div>
           <div class="tabs">
-            <div>Details</div>
-            <div>Moves</div>
-            <div class="active">Status</div>
-            <div>Evolutions</div>
+            <div class="active">Details</div> 
+            <div >Status</div>
           </div>
-          <div class="Status" >
-            <table>
-              <tr>
-                <td>HP</td>
-                <td>test</td>
-              </tr>
-              <tr>
-                <td>HP</td>
-                <td>test</td>
-              </tr>
-              <tr>
-                <td>HP</td>
-                <td>test</td>
-              </tr> <tr>
-                <td>HP</td>
-                <td>test</td>
-              </tr> <tr>
-                <td>HP</td>
-                <td>test</td>
-              </tr>
-            </table>
+          <div class="detail ">
+            <div>
+             <div>
+              <span>Height</span>
+              <span>57m</span>
+             </div>
+             <div>
+              <span>Weight</span>
+              <span>200k</span>
+
+             </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id magnam mollitia quidem, est, doloremque iure error laudantium hic saepe dicta repellendus vero ipsum ut. Quod aliquam quis quae perspiciatis fugit.</p>
+          </div>
+          <div class="status d-none" >
+            <div>
+              <div class="title">HP</div>
+              <div class="progressbar">
+                <span id="hp-status" style="width: 25%"></span>
+              </div>
+            </div>
+            <div>
+              <div class="title">Attack</div>
+              <div class="progressbar">
+                <span id="hp-status" style="width: 40%"></span>
+              </div>
+            </div>
+            <div>
+              <div class="title">Attack</div>
+              <div class="progressbar">
+                <span id="hp-status" style="width: 25%"></span>
+              </div>
+            </div>
+            <div>
+              <div class="title">Attack</div>
+              <div class="progressbar">
+                <span id="hp-status" style="width: 25%"></span>
+              </div>
+            </div>
+            <div>
+              <div class="title">Attack</div>
+              <div class="progressbar">
+                <span id="hp-status" style="width: 65%"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -14,27 +14,27 @@ async function renedrePokemon() {
                                         <div class="big-circle"></div>
                                         <div class="hp">
                                             <span>HP</span>
-                                            <span>32</span>
+                                            <span>${pokemonDetail['stats'][0]['base_stat']}</span>
                                         </div>
                                         <div class="main-info">
                                             <img src="${pokemonDetail['sprites']['other']['official-artwork']['front_default']}" alt="" />
                                             <h2>${pokemon.name}</h2>
-                                            <div class="ability">
+                                            <div class="types" id="types-${pokemonDetail.id}>
                                             <span>Fire</span>
                                             <span>Grass</span>
                                             </div>
                                         </div>
                                         <div class="powers">
                                             <div>
-                                            <span>52</span>
+                                            <span>${pokemonDetail['stats'][1]['base_stat']}</span>
                                             <span>Attack</span>
                                             </div>
                                             <div>
-                                            <span>43</span>
+                                            <span>${pokemonDetail['stats'][2]['base_stat']}</span>
                                             <span>Defence</span>
                                             </div>
                                             <div>
-                                            <span>65</span>
+                                            <span>${pokemonDetail['stats'][5]['base_stat']}</span>
                                             <span>speed</span>
                                             </div>
                                         </div>
