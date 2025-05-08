@@ -9,5 +9,6 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  background: #a6a6a6 url("../assets/img/background.jpg") no-repeat fixed top;
+  background-size: cover;
 }

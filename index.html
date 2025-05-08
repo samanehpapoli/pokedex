@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/overlay.css" />
+    <script src="./scripts/main.js"></script>
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <div class="header-container">
         <img src="./assets/img/logo.webp" alt="logo" />
@@ -19,69 +20,10 @@
       </div>
     </header>
     <main>
-      <div class="main-container">
-        <div class="pokemon">
-          <div class="big-circle"></div>
-          <div class="hp">
-            <span>HP</span>
-            <span>32</span>
-          </div>
-          <div class="main-info">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg" alt="" />
-            <h2>Charmandrer</h2>
-            <div class="ability">
-              <span>Fire</span>
-              <span>Grass</span>
-            </div>
-          </div>
-          <div class="powers">
-            <div>
-              <span>52</span>
-              <span>Attack</span>
-            </div>
-            <div>
-              <span>43</span>
-              <span>Defence</span>
-            </div>
-            <div>
-              <span>65</span>
-              <span>speed</span>
-            </div>
-          </div>
-        </div>
-        <div class="pokemon">
-          <div class="big-circle"></div>
-          <div class="hp">
-            <span>HP</span>
-            <span>32</span>
-          </div>
-          <div class="main-info">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg" alt="" />
-            <h2>Charmandrer</h2>
-            <div class="ability">
-              <span>Fire</span>
-              <span>Grass</span>
-            </div>
-          </div>
-          <div class="powers">
-            <div>
-              <span>52</span>
-              <span>Attack</span>
-            </div>
-            <div>
-              <span>43</span>
-              <span>Defence</span>
-            </div>
-            <div>
-              <span>65</span>
-              <span>speed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="overlay">
-        <div class="pokemon-overlay">
-          <img src="./assets/img/loso2.svg" class="logo" alt="logo">
+      <div class="main-container" id="pokemons"></div>
+      <div class="overlay d-none" >
+        <div class="pokemon-overlay ">
+          <img src="./assets/img/loso2.svg" class="logo" alt="logo" />
           <div class="top">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg" alt="" />
             <div class="code">#006</div>
@@ -90,6 +32,34 @@
               <span>Fire</span>
               <span>Flying</span>
             </div>
+          </div>
+          <div class="tabs">
+            <div>Details</div>
+            <div>Moves</div>
+            <div class="active">Status</div>
+            <div>Evolutions</div>
+          </div>
+          <div class="Status" >
+            <table>
+              <tr>
+                <td>HP</td>
+                <td>test</td>
+              </tr>
+              <tr>
+                <td>HP</td>
+                <td>test</td>
+              </tr>
+              <tr>
+                <td>HP</td>
+                <td>test</td>
+              </tr> <tr>
+                <td>HP</td>
+                <td>test</td>
+              </tr> <tr>
+                <td>HP</td>
+                <td>test</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

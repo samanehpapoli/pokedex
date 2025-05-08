@@ -10,6 +10,9 @@
   justify-content: center;
   align-items: center;
 }
+.overlay.d-none {
+  display: none;
+}
 .overlay .pokemon-overlay {
   background: linear-gradient(#609ae2, #309ae2);
   width: 400px;
@@ -23,7 +26,7 @@
   top: -5px;
   width: 350px;
   right: -170px;
-  filter: invert(1);
+  filter: contrast(0.7);
   opacity: 0.2;
 }
 .overlay .top {
@@ -57,4 +60,24 @@
   border: solid 1px white;
   min-width: 45px;
   text-align: center;
+}
+.overlay .tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #e3e3e3;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.overlay .tabs div {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding-bottom: 8px;
+}
+.overlay .tabs div.active {
+  border-bottom: solid 3px white;
+  color: white;
+}
+.overlay .tabs div:hover {
+  color: white;
 }
