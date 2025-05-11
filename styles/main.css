@@ -1,18 +1,21 @@
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex: 1;
 }
 main .main-container {
-  width: 1600px;
+  max-width: 1600px;
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   padding: 30px 0;
 }
+
 .pokemon {
-  background:rgb(255 255 255 / 65%);
+  background: rgb(255 255 255 / 65%);
   padding: 20px;
   border-radius: 10px;
   position: relative;
@@ -22,7 +25,6 @@ main .main-container {
 }
 
 .pokemon .big-circle {
-  background: #ef8200;
   width: 300px;
   height: 300px;
   position: absolute;
@@ -68,6 +70,9 @@ main .main-container {
 }
 .pokemon .main-info h2 {
   font-size: 25px;
+  font-family: "bungee", sans-serif;
+  text-transform: capitalize;
+  filter: drop-shadow(1px 1px 0px black);
 }
 .pokemon .main-info .types {
   display: flex;
@@ -76,11 +81,11 @@ main .main-container {
   gap: 10px;
 }
 .pokemon .main-info .types span {
-  background: #ef8200;
   border-radius: 50px;
   padding: 2px 9px;
   color: white;
   font-size: 12px;
+  text-transform: capitalize;
 }
 .pokemon .powers {
   display: flex;
@@ -98,6 +103,66 @@ main .main-container {
 .pokemon .powers div span:first-child {
   font-weight: bold;
 }
+main .load-more-button {
+  background: linear-gradient(45deg, #ffcc00, #ff6600, #ff3300);
+  color: #5a3926;
+  border: none;
+  border-radius: 50px;
+  padding: 17px;
+  min-width: 250px;
+  box-shadow: 0 0 10px #ff6600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-size: 200% 200%;
+  margin-bottom: 30px;
+}
+main .load-more-button:hover {
+  background: linear-gradient(45deg, #ffcc00, #ff6600, #ff3300);
+  box-shadow: 0 0 20px #ff9900;
+  transform: scale(1.05);
+}
+main .loading {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(16 5 1 / 61%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .loading.d-none {
+  display: none;
+}
+main .loading img {
+  filter: brightness(0) drop-shadow(0px 0px 10px white) invert(0);
+  width: 200px;
+  animation: rotateStepScale 2s linear infinite;
+}
+
+@keyframes rotateStepScale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(60deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(120deg) scale(0.9);
+  }
+  60% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  80% {
+    transform: rotate(240deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
 footer {
   display: flex;
   justify-content: center;

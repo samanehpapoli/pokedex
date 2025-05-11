@@ -1,6 +1,26 @@
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('../assets/fonts/josefin-sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('../assets/fonts/josefin-sans/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'bungee';
+    src: url('../assets/fonts/bungee/Bungee-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
+  font-family: "JosefinSans" ,sans-serif;
+  font-optical-sizing: auto;
 }
 html,
 body {
@@ -11,4 +31,7 @@ body {
   flex-direction: column;
   background: #a6a6a6 url("../assets/img/background.jpg") no-repeat fixed top;
   background-size: cover;
+}
+body.o-hidden {
+  overflow: hidden;
 }

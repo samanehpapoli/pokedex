@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/overlay.css" />
+    <link rel="stylesheet" href="./styles/color.css" />
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/template.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="init()" class="o-hidden">
     <header>
       <div class="header-container">
         <img src="./assets/img/logo.webp" alt="logo" />
@@ -21,13 +23,14 @@
     </header>
     <main>
       <div class="main-container" id="pokemons"></div>
-      <div class="overlay">
+      <div class="load-more-button">Load Pokemons</div>
+      <div class="overlay d-none" id="overlay">
         <div class="pokemon-overlay">
           <img src="./assets/img/loso2.svg" class="logo" alt="logo" />
           <div class="icons">
-          <img src="./assets/icon/left-arrow (1).png" alt="">
-          <img src="./assets/icon/close.png" alt="">
-          <img src="./assets/icon/right-arrow (1).png" alt="">
+            <img src="./assets/icon/left-arrow (1).png" alt="" />
+            <img src="./assets/icon/close.png" alt="" onclick="closeDetail()" />
+            <img src="./assets/icon/right-arrow (1).png" alt="" />
           </div>
           <div class="top">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/8.svg" alt="" />
@@ -39,24 +42,27 @@
             </div>
           </div>
           <div class="tabs">
-            <div class="active">Details</div> 
-            <div >Status</div>
+            <div class="active" onclick="changeTab(this, 'detail')">Details</div>
+            <div onclick="changeTab(this, 'status')">Status</div>
           </div>
-          <div class="detail ">
+          <div class="tabsDetail">
+            <div class="detail" id="detail">
             <div>
-             <div>
-              <span>Height</span>
-              <span>57m</span>
-             </div>
-             <div>
-              <span>Weight</span>
-              <span>200k</span>
-
-             </div>
+              <div>
+                <span>Height</span>
+                <span>57m</span>
+              </div>
+              <div>
+                <span>Weight</span>
+                <span>200k</span>
+              </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id magnam mollitia quidem, est, doloremque iure error laudantium hic saepe dicta repellendus vero ipsum ut. Quod aliquam quis quae perspiciatis fugit.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id magnam mollitia quidem, est, doloremque iure error laudantium hic
+              saepe dicta repellendus vero ipsum ut. Quod aliquam quis quae perspiciatis fugit.
+            </p>
           </div>
-          <div class="status d-none" >
+          <div class="status d-none" id="status">
             <div>
               <div class="title">HP</div>
               <div class="progressbar">
@@ -88,7 +94,11 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
+      </div>
+      <div class="loading" id="loading">
+        <img src="./assets/img/loso2.svg" alt="" />
       </div>
     </main>
     <footer>
