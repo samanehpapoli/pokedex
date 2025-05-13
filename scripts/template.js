@@ -1,4 +1,4 @@
-function getPokemonTemplate(pokemonDetail) {
+function getPokemonTemplate(pokemonDetail, typesId) {
   return ` <div class="pokemon" onclick="openDetail(${pokemonDetail.id})">
             <div class="big-circle bg-${pokemonDetail.types[0].type.name}"></div>
             <div class="hp">
@@ -7,8 +7,8 @@ function getPokemonTemplate(pokemonDetail) {
             </div>
             <div class="main-info">
                 <img src="${pokemonDetail["sprites"]["other"]["official-artwork"]["front_default"]}" alt="" />
-                <h2 class="fc-${pokemonDetail.types[0].type.name}">${pokemonDetail.name}</h2>
-                <div class="types" id="types-${pokemonDetail.id}"></div>
+                <h2>${pokemonDetail.name}</h2>
+                <div class="types" id="${typesId}"></div>
             </div>
             <div class="powers">
                 <div>
@@ -73,3 +73,4 @@ function getPokemonStatTemplate(stat) {
             <span style="width: ${baseStat}%"></span>
         </div>`;
 }
+ 
