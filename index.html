@@ -4,31 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
-    <link rel="shortcut icon" href="./assets/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/favicon/favicon.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="./styles/standard.css " />
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/overlay.css" />
     <link rel="stylesheet" href="./styles/color.css" />
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/responsive.css" />
     <script src="./scripts/main.js"></script>
     <script src="./scripts/template.js"></script>
   </head>
-  <body onload="init()" class="o-hidden overlay-active " >
+  <body onload="init()" class="o-hidden overlay-active">
     <header>
       <div class="header-container">
         <img src="./assets/img/logo.webp" alt="logo" />
         <div>
-          <input type="text" placeholder="search..." onkeyup="searchPokemon(this)" />
+          <form onsubmit="submitSearchForm(this,event)" onreset=" resetSearchForm() ">
+            <input type="text" name="search" placeholder="search..."/>
+            <button type="submit" >search</button>
+            <button type="reset">Reset</button>
+          </form>
         </div>
       </div>
     </header>
     <main>
-      <div class="main-container" id="pokemons"></div>
-      <div class="main-container d-none" id="search-pokemons"></div>
+      <div class="main-container d-none" id="pokemons"></div>
+      <div class="main-container" id="search-pokemons"> </div>
       <div class="load-more-button disable" id="load-more-button" onclick="lodeMorePokemon()">Load Pokemons</div>
-      <div class="overlay d-none" id="overlay" onclick="closeDetail(this,event)">
-      </div>
+      <div class="overlay d-none" id="overlay" onclick="closeDetail(this,event)"></div>
       <div class="loading" id="loading">
         <img src="./assets/img/loso2.svg" alt="" />
       </div>

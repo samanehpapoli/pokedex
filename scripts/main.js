@@ -116,12 +116,22 @@ function lodeMorePokemon() {
   offset += LIMIT;
   renedrePokemons();
 }
-async function searchPokemon(element) {
-  let searchValue = element.value;
+function submitSearchForm(formElement, formEvent) {
+  formEvent.preventDefault();
+  let searchValue = formElement.search.value;
+  searchPokemon(searchValue);
+}
+function resetSearchForm() {
+  let searchValue = "";
+  searchPokemon(searchValue);
+}
+
+async function searchPokemon(searchValue) {
   if (searchValue.length >= 3) {
     renderSearchPokemons(searchValue);
     showSearchPokemonsSection();
   } else {
+    document.querySelector("body").classList.remove("blur-filter");
     showPokemonsSection();
   }
 }
@@ -129,11 +139,20 @@ async function searchPokemon(element) {
 async function renderSearchPokemons(searchValue) {
   let searchPokemons = allPokemons.filter((pokemon) => pokemon.name.includes(searchValue));
   let searchPokemonsElement = document.getElementById("search-pokemons");
-  searchPokemonsElement.innerHTML = "";
-  for (const pokemon of searchPokemons) {
-    let pokemonDetail = await getData(pokemon.url);
-    searchPokemonsElement.innerHTML += getPokemonTemplate(pokemonDetail, "search-types-" + pokemonDetail.id);
-    renderPokemonTypes(pokemonDetail, "search-types-" + pokemonDetail.id);
+
+  if (searchPokemons.length > 0) {
+    document.querySelector("body").classList.remove("blur-filter");
+    searchPokemonsElement.innerHTML = "";
+    for (const pokemon of searchPokemons) {
+      let pokemonDetail = await getData(pokemon.url);
+      searchPokemonsElement.innerHTML += getPokemonTemplate(pokemonDetail, "search-types-" + pokemonDetail.id);
+      renderPokemonTypes(pokemonDetail, "search-types-" + pokemonDetail.id);
+    }
+  } else {
+    searchPokemonsElement.innerHTML = `  <div class="empty-pokemon">
+    Looks like that Pokémon's hiding! Try a different search.
+    </div> `;
+    document.querySelector("body").classList.add("blur-filter");
   }
 }
 
