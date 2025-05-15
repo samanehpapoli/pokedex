@@ -31,7 +31,7 @@ function getPokemonTypesTemplate(singleType) {
 }
 function getPokemonDetailTemplate(pokemonDetail) {
   return `<div class="pokemon-overlay bg-lg-${pokemonDetail.types[0].type.name}">
-          <img src="./assets/img/loso2.svg" class="logo" alt="logo" />
+          <img src="./assets/img/circle-logo.png" class="logo" alt="logo" />
           <div class="icons">
             <img src="./assets/icon/left-arrow (1).png" alt="" onclick = "previousPokemon(${pokemonDetail.id})" />
             <img src="./assets/icon/close.png" alt="" onclick="closeDetail(this,event)" />
@@ -72,5 +72,11 @@ function getPokemonStatTemplate(stat) {
             <div class="progressbar">
             <span style="width: ${baseStat}%"></span>
         </div>`;
+}
+function getEmptypokemonTemplate() {
+  return `  <div class="empty-pokemon">
+    Looks like that Pokémon's hiding! Try a different search.
+    </div> `
+  
 }
  

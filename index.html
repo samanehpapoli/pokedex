@@ -17,19 +17,23 @@
   <body onload="init()" class="o-hidden overlay-active">
     <header>
       <div class="header-container">
-        <img src="./assets/img/logo.webp" alt="logo" />
+       <a href="#">
+         <img src="./assets/img/logo.webp" alt="logo" />
+       </a>
         <div>
           <form onsubmit="submitSearchForm(this,event)" onreset=" resetSearchForm() ">
-            <input type="text" name="search" placeholder="search..."/>
-            <button type="submit" >search</button>
-            <button type="reset">Reset</button>
+            <input type="text" name="search" placeholder="search..." />
+            <div>
+              <button type="submit">search</button>
+              <button type="reset">Reset</button>
+            </div>
           </form>
         </div>
       </div>
     </header>
     <main>
-      <div class="main-container d-none" id="pokemons"></div>
-      <div class="main-container" id="search-pokemons"> </div>
+      <div class="main-container" id="pokemons"></div>
+      <div class="main-container" id="search-pokemons"></div>
       <div class="load-more-button disable" id="load-more-button" onclick="lodeMorePokemon()">Load Pokemons</div>
       <div class="overlay d-none" id="overlay" onclick="closeDetail(this,event)"></div>
       <div class="loading" id="loading">

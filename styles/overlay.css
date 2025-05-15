@@ -22,11 +22,10 @@
 }
 .overlay .pokemon-overlay img.logo {
   position: absolute;
-  top: 37px;
-  width: 250px;
-  right: -21px;
-  filter: contrast(0.7);
-  opacity: 0.2;
+  top: 30px;
+  width: 200px;
+  right: 0px;
+  opacity: 0.3;
 }
 .overlay .icons {
   display: flex;
@@ -73,9 +72,8 @@
 }
 .overlay .top .abilities {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   gap: 5px;
 }
 .overlay .top .abilities span {
@@ -94,6 +92,8 @@
   color: #e3e3e3;
   font-size: 14px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
 }
 .overlay .tabs div {
   transition: all 0.2s ease;

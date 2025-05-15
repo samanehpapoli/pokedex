@@ -1,4 +1,4 @@
-let allPokemons = [];
+const allPokemons = [];
 let offset = 0;
 const LIMIT = 20;
 function init() {
@@ -6,17 +6,19 @@ function init() {
 }
 
 async function getData(url) {
-  let responsData = await fetch(url);
+  const responsData = await fetch(url);
   return await responsData.json();
 }
 
 async function renedrePokemons() {
   showLoading();
-  let pokemons = await getData(`https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${offset}`);
-  let pokemonselement = document.getElementById("pokemons");
+  const pokemons = await getData(`https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${offset}`);
+  const pokemonselement = document.getElementById("pokemons");
   for (const pokemon of pokemons.results) {
+    console.log("geht");
+    
     allPokemons.push(pokemon);
-    let pokemonDetail = await getData(pokemon.url);
+    const pokemonDetail = await getData(pokemon.url);
     pokemonselement.innerHTML += getPokemonTemplate(pokemonDetail, "types-" + pokemonDetail.id);
     renderPokemonTypes(pokemonDetail, "types-" + pokemonDetail.id);
   }
@@ -38,7 +40,7 @@ function hideloading() {
 }
 
 function renderPokemonTypes(pokemonDetail, elementId) {
-  let pokemonTypeElement = document.getElementById(elementId);
+  const pokemonTypeElement = document.getElementById(elementId);
   pokemonTypeElement.innerHTML = "";
   pokemonDetail.types.forEach((singleType) => {
     pokemonTypeElement.innerHTML += getPokemonTypesTemplate(singleType);
@@ -46,7 +48,7 @@ function renderPokemonTypes(pokemonDetail, elementId) {
 }
 
 async function openDetail(pokemonId) {
-  let pokemonDetail = await getData("https://pokeapi.co/api/v2/pokemon/" + pokemonId);
+  const pokemonDetail = await getData("https://pokeapi.co/api/v2/pokemon/" + pokemonId);
   document.getElementById("overlay").innerHTML = getPokemonDetailTemplate(pokemonDetail);
   renderPokemonTypes(pokemonDetail, "overlay-types-" + pokemonDetail.id);
   renderPokemonStats(pokemonDetail);
@@ -55,7 +57,7 @@ async function openDetail(pokemonId) {
 }
 
 function renderPokemonStats(pokemonDetail) {
-  let statusElement = document.getElementById("status");
+  const statusElement = document.getElementById("status");
   statusElement.innerHTML = "";
   pokemonDetail.stats.forEach((stat) => {
     statusElement.innerHTML += getPokemonStatTemplate(stat);
@@ -91,14 +93,14 @@ function changeTab(clickesElement, tab) {
 }
 
 function activeSelectedTab(clickesElement) {
-  let tabsSelector = document.querySelectorAll(".tabs > div");
+  const tabsSelector = document.querySelectorAll(".tabs > div");
   tabsSelector.forEach((tabSelector) => {
     tabSelector.classList.remove("active");
   });
   clickesElement.classList.add("active");
 }
 function showSelectedTbDetai(tab) {
-  let tabsDetailSelector = document.querySelectorAll(".tabsDetail > div");
+  const tabsDetailSelector = document.querySelectorAll(".tabsDetail > div");
   tabsDetailSelector.forEach((tabDetailSelector) => {
     tabDetailSelector.classList.add("d-none");
   });
@@ -137,8 +139,8 @@ async function searchPokemon(searchValue) {
 }
 
 async function renderSearchPokemons(searchValue) {
-  let searchPokemons = allPokemons.filter((pokemon) => pokemon.name.includes(searchValue));
-  let searchPokemonsElement = document.getElementById("search-pokemons");
+  const searchPokemons = allPokemons.filter((pokemon) => pokemon.name.includes(searchValue));
+  const searchPokemonsElement = document.getElementById("search-pokemons");
 
   if (searchPokemons.length > 0) {
     document.querySelector("body").classList.remove("blur-filter");
@@ -149,9 +151,7 @@ async function renderSearchPokemons(searchValue) {
       renderPokemonTypes(pokemonDetail, "search-types-" + pokemonDetail.id);
     }
   } else {
-    searchPokemonsElement.innerHTML = `  <div class="empty-pokemon">
-    Looks like that Pokémon's hiding! Try a different search.
-    </div> `;
+    searchPokemonsElement.innerHTML = getEmptypokemonTemplate();
     document.querySelector("body").classList.add("blur-filter");
   }
 }
